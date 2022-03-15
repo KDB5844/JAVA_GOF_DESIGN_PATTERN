@@ -1,0 +1,24 @@
+1. 자바에서 enum을 사용하지 않고 싱글톤 패턴을 구현하는 방법?
+-> synchronized keyword 사용, eager initialization, double checked locking, static inner
+
+2. private 생성자와 static 메소드를 사용하는 방법의 단점은?
+-> synchronized 를 사용하는 경우에는 동기화로 매커니즘으로 인해 성능저하 발생
+   eager initialization을 사용하는 경우 메모리를 많이 잡아먹는다면 Application Loading 시 많은 시간 걸림, 또한 당장 사용되는게 아니라면 리소스 낭비
+   공통으로 리플랙션을 통해 인스턴스를 생성하는 행위를 막을 수 없다.
+
+3. enum을 사용해 싱글톤 패턴을 구현하는 방법의 장점과 단점은?
+-> 간단하게 작성 가능하고, 리플랙션이나 역직렬화에 대응이 가능하다.
+   단점으론 lazy loading이 불가, enum으로 작성되지 않은 클래스를 상속을 받을 수 없다.
+
+4. static inner 클래스를 사용해 실글톤 패턴을 구현
+->
+public class Settings{
+
+    private static class settingsHolder(){
+        private static final INSTANCE = new Settings();
+    }
+
+    public static Settings getInstance(){
+        return settingsHolder.INSTANCE;
+    }
+}

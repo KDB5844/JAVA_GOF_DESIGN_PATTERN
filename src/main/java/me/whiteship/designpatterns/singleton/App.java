@@ -10,14 +10,14 @@ public class App {
 
         //Singleton을 깨트리는 방법
 
-        //1. 리플렉션 사용
+        //1. 리플렉션 사용 (대응 방안 없음)
         Constructor<Settings> constructor = Settings.class.getDeclaredConstructor();
         constructor.setAccessible(true);
         Settings settings1 = constructor.newInstance();
 
         System.out.println(settings == settings1);
 
-        //2. 직렬화 & 역직렬화 사용
+        //2. 직렬화 & 역직렬화 사용 (대응 방안 존재 readResolve)
         try (ObjectOutput out = new ObjectOutputStream(new FileOutputStream("settings.obj"))) {
             out.writeObject(settings);
         }
@@ -29,5 +29,9 @@ public class App {
         }
 
         System.out.println(settings == settings2);
+
+        SettingsEnum settingsEnum = SettingsEnum.INSTANCE;
+        SettingsEnum settingsEnum1 = SettingsEnum.INSTANCE;
+        System.out.println(settingsEnum == settingsEnum1);
     }
 }

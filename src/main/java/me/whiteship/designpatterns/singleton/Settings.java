@@ -73,4 +73,5 @@ public class Settings implements Serializable {
     protected Object readResolve() {
         return getInstance();
     }
+
 }
