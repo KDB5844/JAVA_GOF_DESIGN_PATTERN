@@ -1,8 +1,9 @@
 package me.whiteship.designpatterns.singleton;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class Settings{
+public class Settings implements Serializable {
 
     // private로 new 생성자 막기
     private Settings(){};
@@ -66,5 +67,10 @@ public class Settings{
 
     public static Settings getInstance() {
         return SettingsHolder.INSTANCE;
+    }
+
+    //역직렬화 대응 방안
+    protected Object readResolve() {
+        return getInstance();
     }
 }
