@@ -1,4 +1,4 @@
-package me.whiteship.designpatterns.singleton;
+package me.whiteship.designpatterns._01_creational_patterns._01_singleton;
 
 import java.io.*;
 import java.lang.reflect.Constructor;

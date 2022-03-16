@@ -1,7 +1,6 @@
-package me.whiteship.designpatterns.singleton;
+package me.whiteship.designpatterns._01_creational_patterns._01_singleton;
 
 import java.io.Serializable;
-import java.util.Set;
 
 public class Settings implements Serializable {
 

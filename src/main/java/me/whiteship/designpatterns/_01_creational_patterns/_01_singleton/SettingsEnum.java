@@ -1,4 +1,4 @@
-package me.whiteship.designpatterns.singleton;
+package me.whiteship.designpatterns._01_creational_patterns._01_singleton;
 
 /**
  * enum을 사용하면 간단하게 thread safe하게 작성 가능
